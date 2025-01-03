@@ -15,12 +15,13 @@ build:
   noarch: python
   entry_points:
     - compiledb=compiledb.cli:cli
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - bashlex
     - click
